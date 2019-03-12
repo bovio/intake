@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Intake script</title>
+  </head>
+  <body>
+    <h1 id="heading">Intake</h1>
+    <container id="intake-fields">
+      <form>
+        <div id="problem">
+          <label>Problem description:</label>
+          <textarea
+            placeholder="Why is this here?"
+            required
+            class="notes external"
+          ></textarea>
+        </div>
+        <div id="visual">
+          <label>Visual notes:</label>
+          <textarea
+            placeholder="Check for any damage, scratches, etc. Open computer up."
+            class="notes external"
+            required
+          ></textarea>
+        </div>
+        <div id="damage">
+          <label>Accidental damage?</label>
+          <input
+            type="radio"
+            name="damage"
+            value="no"
+            class="notes external damage-no"
+            checked
+          />No<br />
+          <input
+            type="radio"
+            name="damage"
+            value="yes"
+            class="notes external damage-yes"
+          />Yes<br />
+          <div class="accident-box notes external"></div>
+        </div>
+        <div id="expectations">
+          <label>Customer expectations:</label>
+          <textarea
+            placeholder="What have we told the customer we will do for them?"
+            class="notes external"
+            required
+          ></textarea>
+        </div>
+
+        <div id="data">
+          <label>Does customer need data?</label>
+          <input
+            type="radio"
+            name="data"
+            value="no"
+            class="notes external data-no"
+            checked
+          />No<br />
+          <input
+            type="radio"
+            name="data"
+            value="yes"
+            class="notes external data-yes"
+          />Yes<br />
+          <div class="data-box notes external"></div>
+        </div>
+        <div id="password">
+          <label>Password:</label>
+          <input
+            type="text"
+            placeholder="password"
+            class="notes internal"
+            required
+          />
+        </div>
+        <div id="accessories">
+          <label>Accessories?</label>
+          <input
+            type="radio"
+            name="accessories"
+            value="no"
+            class="notes external accessories-no"
+            checked
+          />No<br />
+          <input
+            type="radio"
+            name="accessories"
+            value="yes"
+            class="notes external accessories-yes"
+          />Yes<br />
+          <div class="accessories-box notes external"></div>
+        </div>
+
+        <div id="internal">
+          <label>Internal notes:</label>
+          <textarea
+            placeholder="Customer can't see this. Any special instructions? Things of note? Gossip? Dish!"
+            required
+            class="notes internal"
+          ></textarea>
+        </div>
+
+        <div id="bin">
+          <label>BIN:</label>
+          <input
+            type="text"
+            required
+            placeholder="Where's it at?"
+            class="notes external"
+          />
+        </div>
+        <div id="user">
+          <label>Who are you?</label>
+          <input
+            type="text"
+            placeholder="say ur name say ur name"
+            class="notes external"
+            required
+          />
+          <div id="buttons">
+            <button class="btn-submit">submit</button>
+            <button class="btn-clear">clear all fields</button>
+          </div>
+        </div>
+      </form>
+    </container>
+    <script src="app.js"></script>
+  </body>
+</html>

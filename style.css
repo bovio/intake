@@ -1,0 +1,41 @@
+body,
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(172, 129, 120);
+  font-family: "Courier New", Courier, monospace;
+}
+
+#heading {
+  text-align: center;
+}
+
+#intake-fields {
+  text-align: center;
+  display: block;
+}
+
+#intake-fields label {
+  display: block;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#intake-fields input[type="text"] {
+  width: 10%;
+  padding: 5px;
+  margin-top: 10px;
+  font-family: inherit;
+  font-size: 0.8rem;
+}
+
+#intake-fields textarea {
+  margin-top: 10px;
+  width: 40%;
+  padding: 10px;
+  height: 50px;
+  font-family: inherit;
+  font-size: 1rem;
+}
