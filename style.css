@@ -39,3 +39,22 @@ html {
   font-family: inherit;
   font-size: 1rem;
 }
+
+#external-notes {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+#external-notes textarea {
+  text-align: left;
+  align-self: center;
+  margin-top: 20px;
+  width: 300px;
+  height: 300px;
+  font-size: 1rem;
+}
+
+#external-notes .internal-head {
+  text-align: center;
+}

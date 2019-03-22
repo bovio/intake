@@ -11,23 +11,25 @@
     <h1 id="heading">Intake</h1>
     <container id="intake-fields">
       <form>
-        <div id="problem">
+        <div>
           <label>Problem description:</label>
           <textarea
+            id="problem"
             placeholder="Why is this here?"
             required
             class="notes external"
           ></textarea>
         </div>
-        <div id="visual">
+        <div>
           <label>Visual notes:</label>
           <textarea
+            id="visual"
             placeholder="Check for any damage, scratches, etc. Open computer up."
             class="notes external"
             required
           ></textarea>
         </div>
-        <div id="damage">
+        <div id="accidental">
           <label>Accidental damage?</label>
           <input
             type="radio"
@@ -44,9 +46,10 @@
           />Yes<br />
           <div class="accident-box notes external"></div>
         </div>
-        <div id="expectations">
+        <div>
           <label>Customer expectations:</label>
           <textarea
+            id="expectations"
             placeholder="What have we told the customer we will do for them?"
             class="notes external"
             required
@@ -97,27 +100,30 @@
           <div class="accessories-box notes external"></div>
         </div>
 
-        <div id="internal">
+        <div>
           <label>Internal notes:</label>
           <textarea
+            id="internal"
             placeholder="Customer can't see this. Any special instructions? Things of note? Gossip? Dish!"
             required
             class="notes internal"
           ></textarea>
         </div>
 
-        <div id="bin">
+        <div>
           <label>BIN:</label>
           <input
+            id="bin"
             type="text"
             required
             placeholder="Where's it at?"
             class="notes external"
           />
         </div>
-        <div id="user">
+        <div>
           <label>Who are you?</label>
           <input
+            id="user"
             type="text"
             placeholder="say ur name say ur name"
             class="notes external"
@@ -129,6 +135,9 @@
           </div>
         </div>
       </form>
+    </container>
+    <container id="external-notes">
+      <div></div>
     </container>
     <script src="app.js"></script>
   </body>
