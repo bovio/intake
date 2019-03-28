@@ -40,21 +40,25 @@ html {
   font-size: 1rem;
 }
 
-#external-notes {
+#external-notes,
+#internal-notes {
   display: grid;
+  text-align: center;
   align-items: center;
   justify-content: center;
 }
 
-#external-notes textarea {
-  text-align: left;
-  align-self: center;
+#external-notes textarea,
+#internal-notes textarea {
+  padding: 10px;
   margin-top: 20px;
   width: 300px;
   height: 300px;
   font-size: 1rem;
 }
-
-#external-notes .internal-head {
+#external-notes .external-btn,
+#internal-notes .internal-btn {
+  display: block;
   text-align: center;
+  width: 100%;
 }

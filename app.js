@@ -1,3 +1,7 @@
+const insertAfter = (newNode, referenceNode) => {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+};
+
 class Intake {
   constructor(
     problem,
@@ -26,8 +30,11 @@ class Intake {
     if (this.problem !== "") {
       let external = document.createElement("textarea");
       let externalHead = document.createElement("h2");
+      let externalBtn = document.createElement("button");
       externalHead.className = "external-head";
       externalHead.innerText = "external Notes:";
+      externalBtn.className = "external-btn";
+      externalBtn.innerText = "Copy Customer Notes";
       external.setAttribute("class", "customer-facing");
       external.setAttribute("autofocus", "true");
       external.innerHTML = `
@@ -36,9 +43,7 @@ class Intake {
       Accidental damage: ${this.accidental}
       Customer expectations: ${this.expectations}
       Needs data? ${this.data}
-      Password: ${this.password}
       Accessories: ${this.accessories}
-      Internal notes: ${this.internal}
       BIN: ${this.bin}
       User: ${this.user}
       `;
@@ -47,6 +52,8 @@ class Intake {
         document
           .getElementById("external-notes")
           .firstElementChild.appendChild(external);
+
+        insertAfter(externalBtn, external);
 
         document
           .getElementById("external-notes")
@@ -62,7 +69,65 @@ class Intake {
             document.getElementById("external-notes").children[1].childNodes[0]
           );
       }
+      document
+        .querySelector("#external-notes")
+        .childNodes[2].childNodes[1].addEventListener("click", function() {
+          let text = document.querySelector(".customer-facing");
+          console.log(text);
+          text.select();
+          document.execCommand("copy");
+          alert("Customer notes copied to clipboard");
+        });
     }
+  }
+
+  renderInternalNotes() {
+    if (this.problem !== "") {
+      let internal = document.createElement("textarea");
+      let internalHead = document.createElement("h2");
+      let internalBtn = document.createElement("button");
+      internalHead.className = "internal-head";
+      internalHead.innerText = "internal Notes:";
+      internalBtn.className = "internal-btn";
+      internalBtn.innerText = "Copy Internal Notes";
+      internal.setAttribute("class", "internal-facing");
+      internal.setAttribute("autofocus", "true");
+      internal.innerHTML = `
+      Password: ${this.password}
+      Internal notes: ${this.internal}
+      `;
+
+      if (document.getElementById("internal-notes").children.length <= 1) {
+        document
+          .getElementById("internal-notes")
+          .firstElementChild.appendChild(internal);
+
+        insertAfter(internalBtn, internal);
+
+        document
+          .getElementById("internal-notes")
+          .insertBefore(
+            internalHead,
+            document.getElementById("internal-notes").firstElementChild
+          );
+      } else {
+        document
+          .getElementById("internal-notes")
+          .children[1].replaceChild(
+            internal,
+            document.getElementById("internal-notes").children[1].childNodes[0]
+          );
+      }
+    }
+    document
+      .querySelector("#internal-notes")
+      .childNodes[2].childNodes[1].addEventListener("click", function() {
+        let text = document.querySelector(".internal-facing");
+        console.log(text);
+        text.select();
+        document.execCommand("copy");
+        alert("Internal notes copied to clipboard");
+      });
   }
 }
 
@@ -114,6 +179,7 @@ document.querySelector("form").addEventListener("submit", function(e) {
     });
 
   intake.renderCustomerNotes();
+  intake.renderInternalNotes();
 
   e.preventDefault();
 });
@@ -158,5 +224,9 @@ document.getElementById("accessories").addEventListener("change", function(e) {
 });
 
 document.querySelector(".btn-clear").addEventListener("click", function() {
-  window.location.reload();
+  let sure = confirm("Are you sure? You'll lose everything!");
+  if (sure === true) {
+    window.location.reload();
+  } else {
+  }
 });
